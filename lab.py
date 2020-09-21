@@ -5,8 +5,9 @@ import matplotlib.pyplot as plt
 #import pandas as import pd
 import math 
 from statistics import mean
+from scipy import stats
 
-
+'''
 def calc_average(num):
     sum_num = 0
     for t in num:
@@ -14,25 +15,17 @@ def calc_average(num):
 
     avg = sum_num / len(num)
     return avg
-
-
-
 def calc_minmax(num):
     maxmin = (max(num) - min(num)) / 2.00000000
     return maxmin
-
-
-
 def calc_square(num):
     for i in num:
         print(i**2.00)
-
-
-
 def calc_minmaxsqr(num):
     return ((max(num))**2-(min(num))**2) / 2.0000
+'''
 
-
+# UP-TO-DATE DATA STARTS BELOW--DARCY PLS FIX THIS SHIT
 points = [
     [2.0, (1.67*(10**-5))],
     [4.0, (4.17*(10**-6))],
@@ -58,7 +51,7 @@ points3 =[
 ]
 
 
-
+# DARCY PLS FIX THIS SOMETIME WTF
 x, y = [], []
 for i in range(len(points)):
     x.append(points2[i][0])
@@ -69,6 +62,8 @@ for i in range(len(points)):
     a.append(points3[i][0])
     b.append(points3[i][1])
 
+'''
+
 xs = np.array(a, dtype=np.float64)
 ys = np.array(b, dtype=np.float64)
 
@@ -76,12 +71,30 @@ def lobf(x,y):
     m = (((mean(x)*mean(y))-mean(x*y))/((mean(x)*mean(x))-mean(x*x)))
     b = mean(y)-(m*mean(x))
     return m, b
+m, b =lobf(xs, ys)
+reg_line = []
+'''
+
+# REGRESSION FIXED - DO NOT CHANGE
+#coef = np.polyfit(a, b, 1)
+#poly1d_fn = np.poly1d(coef) 
+#plt.plot(x,y, 'yo', x, poly1d_fn(x), '--k')
+#plt.xlim(XXXX, XXXX)
+#plt.ylim(XXXX, XXXX)
+
+# LINREGRESS 2.0
+'''
+slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
+print("slope: %f    intercept: %f" % (slope, intercept))
+print("R-squared: %f" % r_value**2)
+plt.plot(x, intercept + slope*x, 'r', label='fitted line')
+'''
 
 plt.style.use('seaborn-whitegrid')
-plt.scatter(x, y, c = 'red')
 plt.scatter(a, b, c = 'green')
-#plt.plot(a, b, regression)*****
 plt.title("test plot now xd")
+plt.plot(a, b)
 plt.xlabel("distance in m")
 plt.ylabel("fg except its not rlly a force xd")
 plt.show()
+print(stats.linregress(a, b))
