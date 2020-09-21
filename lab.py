@@ -62,6 +62,8 @@ for i in range(len(points)):
     a.append(points3[i][0])
     b.append(points3[i][1])
 
+print(a)
+print(b)
 '''
 
 xs = np.array(a, dtype=np.float64)
@@ -94,7 +96,7 @@ plt.style.use('seaborn-whitegrid')
 plt.scatter(a, b, c = 'green')
 plt.title("test plot now xd")
 plt.plot(a, b)
-plt.xlabel("distance in m")
-plt.ylabel("fg except its not rlly a force xd")
+plt.xlabel("distance (m^2)")
+plt.ylabel("1/Fg    ")
 plt.show()
 print(stats.linregress(a, b))
