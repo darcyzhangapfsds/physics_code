@@ -35,35 +35,36 @@ points = [
 ]
 
 points2 = [
-    [2.0, 1/(1.67*(10**-5))],
-    [4.0, 1/(4.17*(10**-6))],
-    [6.0, 1/(1.85*(10**-6))],
-    [8.0, 1/(1.04*(10**-6))],
-    [10.0, 1/(6.67*(10**-7))]
+    [1/2.0, 1/(1.67*(10**-5))],
+    [1/4.0, 1/(4.17*(10**-6))],
+    [1/6.0, 1/(1.85*(10**-6))],
+    [1/8.0, 1/(1.04*(10**-6))],
+    [1/10.0, 1/(6.67*(10**-7))]
 ]
 
-points3 =[
-    [2.0**2, 1/(1.67*(10**-5))],
-    [4.0**2, 1/(4.17*(10**-6))],
-    [6.0**2, 1/(1.85*(10**-6))],
-    [8.0**2, 1/(1.04*(10**-6))],
-    [10.0**2, 1/(6.67*(10**-7))]
+deltapoints =[
+    [(1/2.0)**2, (1.67*(10**-5))],
+    [(1/4.0)**2, (4.17*(10**-6))],
+    [(1/6.0)**2, (1.85*(10**-6))],
+    [(1/8.0)**2, (1.04*(10**-6))],
+    [(1/10.0)**2, (6.67*(10**-7))]
 ]
 
 
 # DARCY PLS FIX THIS SOMETIME WTF
 x, y = [], []
 for i in range(len(points)):
-    x.append(points2[i][0])
-    y.append(points2[i][1])
+    x.append(deltapoints[i][0])
+    y.append(deltapoints[i][1])
 
 a, b = [], []
 for i in range(len(points)):
-    a.append(points3[i][0])
-    b.append(points3[i][1])
+    a.append(points2[i][0])
+    b.append(points2[i][1])
 
-print(a)
-print(b)
+
+
+
 '''
 
 xs = np.array(a, dtype=np.float64)
@@ -93,10 +94,11 @@ plt.plot(x, intercept + slope*x, 'r', label='fitted line')
 '''
 
 plt.style.use('seaborn-whitegrid')
-plt.scatter(a, b, c = 'green')
+plt.scatter(x, y, c = 'red', label = 'data')
+plt.plot(x, y, label = 'line of best fit')
 plt.title("test plot now xd")
-plt.plot(a, b)
 plt.xlabel("distance (m^2)")
-plt.ylabel("1/Fg    ")
+plt.ylabel("1/Fg")
 plt.show()
-print(stats.linregress(a, b))
+#print(stats.linregress(a, b))
+#print(stats.linregress(x, y))
