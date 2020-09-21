@@ -94,8 +94,8 @@ plt.plot(x, intercept + slope*x, 'r', label='fitted line')
 '''
 
 plt.style.use('seaborn-whitegrid')
-plt.scatter(x, y, c = 'red', label = 'data')
-plt.plot(x, y, label = 'line of best fit')
+plt.scatter(x, y, c = 'red')
+plt.plot(x, y)
 plt.title("test plot now xd")
 plt.xlabel("distance (m^2)")
 plt.ylabel("1/Fg")
