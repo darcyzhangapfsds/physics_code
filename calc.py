@@ -18,4 +18,6 @@ def a(mass, Force):
     Force = float(Force)
     return Force/mass
 
-print((a(0.500, 30))*0.6)
+a = (0.2927*0.734)+(0.3437*-0.717)
+b = (0.2927*-0.390)+(0.3437*0.489)
+print(((abs(a-b))/(((a+b)/2)))*100)
