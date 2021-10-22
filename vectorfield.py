@@ -18,7 +18,7 @@ y = np.linspace(-2, 2, ny)
 X, Y = np.meshgrid(x, y) 
   
 # Create a multipole with nq charges of 
-# alternating sign, equally spaced 
+# alternating sign, equally spaced  
 # on the unit circle. 
 opp = input('opposite charges, y/n? ')
 # Increase the power with increase in charge 
