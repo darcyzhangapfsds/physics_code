@@ -75,6 +75,11 @@ void returnlocal() {
                 }
                 else {
                     global[local][c] == "B";
+                    int F1;int F2;
+                    cin << F1;
+                    if(F1 == 80) {
+                        global[]
+                    }
                     localizer.push_back(local*rows);
                 }
             }
